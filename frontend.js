@@ -48,17 +48,10 @@ $(document).ready(function () {
 
     vorlesen(currentPage);
 
-    /* TODO find correct timeouts */
-    switch (currentPage) {
-      case 1:
-        showBlobAfter(19000)
-      case 2:
-        showBlobAfter(16000)
-      case 3:
-        showBlobAfter(6000)
-      case 4:
-        showBlobAfter(31000)
-    }
+    if (currentPage == 1) {showBlobAfter(19000)}
+    else if (currentPage == 2) {showBlobAfter(16000)}
+    else if (currentPage == 3) {showBlobAfter(6000)}
+    else if (currentPage == 4) {showBlobAfter(31000)}
   });
 });
 
