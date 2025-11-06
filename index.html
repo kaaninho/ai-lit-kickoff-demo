@@ -8,7 +8,7 @@
   <style>
     body {
       background-color: #e0ddd8;
-      font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+      font-family: 'Trebuchet MS', 'Poppins', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,17 +63,19 @@
     .page img {
       width: 100%;
       height: 70%;
+      /*das Bild wird so groß wie möglich angezeigt, ohne beschnitten oder verzerrt zu werden; es kann Ränder geben.*/
+      object-fit: contain;/*oder 'cover', je nach gewünschtem Effect*/
       border-radius: 12px;
     }
 
     .page-text {
-      width: 100%;
-      background: rgba(255, 248, 230, 0.85);
-      border-radius: 12px;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      width: 85%;
+      /*background: rgba(255, 248, 230, 0.0);*/
+      /*border-radius: 12px;*/
+      /*box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);*/
       font-size: 1.4rem;
       color: #333;
-      text-align: center;
+      text-align: left;
       margin-top: 10px;
       margin-bottom: -10px;
       padding-left: 10px;
@@ -82,60 +84,81 @@
     }
 
     .menu-bar {
-      width: 700px;
+      width: 70%;
       background: rgba(255, 248, 230, 0.85);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 16px 20px;
       border-radius: 12px;
       margin-top: 5px;
       margin-bottom: 10px;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     }
 
     .menu-bar button {
+      display: inline-block;
       border: none;
+      border-radius: 15px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 1rem;
       color: #fff;
       padding: 12px 24px;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      /*transition: all 0.3s ease;*/
+      text-align: center;
+      /*box-shadow: 0 5px #357ae8;*/
     }
 
-    .menu-bar button:hover {
+    /*.menu-bar button:hover {
       background: #574fd6;
       transform: scale(1.05);
-    }
+    }*/
 
     #prevPage {
-      background: linear-gradient(145deg, #6ec1e4, #4a9ed9)
+      background: linear-gradient(145deg, #357ae8, #4b9eff);
+      box-shadow: 0 9px #357ae8;
     }
 
-    #prevPage:hover {
-      background: linear-gradient(145deg, #357ae8, #4b9eff);
-      transform: scale(1.1);
+    #prevPage:active {
+      box-shadow: 0 5px rgba(30, 70, 150);
+      transform: translateY(4px);
+    }
+
+   #prevPage:hover {
+      background: linear-gradient(145deg, #4b9eff, #357ae8);
+      /*transform: scale(1);*/
     }
 
     #vorlesenBtn {
-      background: linear-gradient(145deg, #ffb84c, #ff9a3c)
+      background: linear-gradient(145deg,#ff9a3c, #ffb84c);
+      box-shadow: 0 9px #ff9a3c;
+    }
+
+    #vorlesenBtn:active {
+      box-shadow: 0 5px rgba(200, 90, 20);
+      transform: translateY(4px);
     }
 
     #vorlesenBtn:hover {
-      background: linear-gradient(145deg, #ff9a3c, #ffb84c);
-      transform: scale(1.1);
+      background: linear-gradient(145deg, #ffb84c, #ff9a3c);
+      /*transform: scale(1.1);*/
     }
 
     #nextPage {
-      background: linear-gradient(145deg, #6ec1e4, #4a9ed9)
+      background: linear-gradient(145deg, #357ae8, #4b9eff);
+      box-shadow: 0 9px #357ae8;
+    }
+
+    #nextPage:active {
+      box-shadow: 0 5px rgba(30, 70, 150);
+      transform: translateY(4px);
     }
 
     #nextPage:hover {
-      background: linear-gradient(145deg, #357ae8, #4b9eff);
-      transform: scale(1.1);
+      background: linear-gradient(145deg, #4b9eff, #357ae8);
+      /*transform: scale(1.1);*/
     }
 
 
@@ -203,9 +226,7 @@
           <div class="page-text" style="display:flex">
             <div style="align-self:center">
               Vor Kurzem erst war der Drache aufgewacht. Als er gähnte, bebte die Erde und als er nieste, krachte es wie
-              Donner. Da zitterten und bibberten die Dorfbewohner.
-
-              Denn nun war es an der Zeit, dem hungrigen Drachen eine hübsche Prinzessin zum Fraß vorzuwerfen.
+              Donner. Da zitterten und bibberten die Dorfbewohner. Denn nun war es an der Zeit, dem hungrigen Drachen eine hübsche Prinzessin zum Fraß vorzuwerfen.
             </div>
           </div>
         </div>
@@ -223,7 +244,7 @@
           <img src="images/3.png" alt="Bilderbuchseite 3">
           <div class="page-text" style="display:flex">
             <div style="align-self:center">
-              Oskars Mama weinte bitterlich, aber es half nichts. Oskar musste zum Drachen.
+              Oskars Mama weinte bitterlich, aber es half nichts. <br> Oskar musste zum Drachen.
             </div>
           </div>
         </div>
@@ -244,9 +265,9 @@
       </div>
 
       <div class="menu-bar">
-        <button id="prevPage">⬅️ Zurück</button>
+        <button id="prevPage">← Zurück</button>
         <button id="vorlesenBtn">🔊 Vorlesen</button>
-        <button id="nextPage">➡️ Weiter</button>
+        <button id="nextPage">Weiter →</button>
       </div>
 
     </div>
