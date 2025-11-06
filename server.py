@@ -87,23 +87,27 @@ def play_from_file_path(filename):
         return {"ok": True, "msg": f"Spiele {filename}"}
 
 
-
 class PlayRequest(BaseModel):
     section: int
 
-# 🆕 Neuer Endpoint: Spielt eine MP3-Datei ab
 @app.post("/api/play")
 def play_audio(req: PlayRequest):
     section = req.section
-    print(section)
     vorlesen = f"audio/{section} vorlesen.mp3"
     frage = f"audio/{section} frage.mp3"
     antwort = f"audio/{section} antwort.mp3"
     try:
         play_from_file_path(vorlesen)
-        time.sleep(2)
+        time.sleep(1.5)
         play_from_file_path(frage)
-        time.sleep(6)
+        if section == "1":
+            time.sleep(5)
+        elif section == "2":
+            time.sleep(5)
+        elif section == "3":
+            time.sleep(5)
+        else:
+            time.sleep(5)
         play_from_file_path(antwort)
 
     except Exception as e:
