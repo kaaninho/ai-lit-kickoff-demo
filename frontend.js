@@ -40,12 +40,12 @@ async function showBlobAndSpeak(section) {
   }
   else if (section == 3) {
     readDuration = 6112
-    questionDuration = 4048
+    questionDuration = 2194
     kidAnswerDuration = 5000
     answerDuration = 11467
   }
   else if (section == 4) {
-    readDuration = 30.589
+    readDuration = 30589
     questionDuration = 2847
     kidAnswerDuration = 5000
     answerDuration = 5955
@@ -53,7 +53,7 @@ async function showBlobAndSpeak(section) {
 
   await new Promise(resolve => setTimeout(resolve, readDuration));
   showBlob();
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  await new Promise(resolve => setTimeout(resolve, 1500 + 300));
   playTalkAnimation();
   await new Promise(resolve => setTimeout(resolve, questionDuration));
   stopTalkAnimation();  
